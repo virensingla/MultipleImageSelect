@@ -15,8 +15,15 @@
 
     <TextView
         android:id="@+id/text_view_album_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:background="@color/multiple_image_select_albumTextBackground"
         android:textColor="@color/multiple_image_select_primaryText"
-        style="@style/AlbumNameTextViewStyle"/>
-
+        android:paddingTop="8dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="8dp"
+        android:textSize="12sp"
+        android:lines="1"/>
 </FrameLayout>
