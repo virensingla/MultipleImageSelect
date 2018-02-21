@@ -48,6 +48,7 @@ public class AlbumSelectActivity extends HelperActivity {
     private ContentObserver observer;
     private Handler handler;
     private Thread thread;
+    private String stringExtra;
 
     private final String[] projection = new String[]{
             MediaStore.Images.Media.BUCKET_ID,
@@ -77,6 +78,10 @@ public class AlbumSelectActivity extends HelperActivity {
             finish();
         }
         Constants.limit = intent.getIntExtra(Constants.INTENT_EXTRA_LIMIT, Constants.DEFAULT_LIMIT);
+
+        if(intent.hasExtra(Constants.INTENT_EXTRA_STRING_TAG)){
+            stringExtra = intent.getStringExtra(Constants.INTENT_EXTRA_STRING_TAG);
+        }
 
         errorDisplay = (TextView) findViewById(R.id.text_view_error);
         errorDisplay.setVisibility(View.INVISIBLE);
@@ -206,6 +211,10 @@ public class AlbumSelectActivity extends HelperActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(stringExtra != null){
+            data.putExtra(Constants.INTENT_EXTRA_STRING_TAG, stringExtra);
+        }
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == Constants.REQUEST_CODE
