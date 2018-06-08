@@ -80,6 +80,7 @@ public class ImageSelectActivity extends HelperActivity {
         if (intent == null) {
             finish();
         }
+
         album = intent.getStringExtra(Constants.INTENT_EXTRA_ALBUM);
 
         errorDisplay = (TextView) findViewById(R.id.text_view_error);
